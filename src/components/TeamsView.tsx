@@ -36,9 +36,16 @@ export default function TeamsView({
 
   const visible = teams.filter((t) => filter === "전체" || t.key === filter);
 
+  // 필터칩으로 특정 팀을 고르면 그 팀을 자동으로 펼친다
+  function handleSelect(key: string) {
+    setFilter(key);
+    const team = teams.find((t) => t.key === key);
+    if (team) setExpanded(team.name);
+  }
+
   return (
     <div className="mx-auto w-full max-w-[480px] animate-fade-up px-4">
-      <Chips items={chips} active={filter} onSelect={setFilter} />
+      <Chips items={chips} active={filter} onSelect={handleSelect} />
 
       <div className="flex flex-col gap-3">
         {visible.map((t) => {
