@@ -5,7 +5,9 @@ import remarkGfm from "remark-gfm";
 export default function Markdown({ children }: { children: string }) {
   return (
     <div className="prose max-w-none">
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>{children}</ReactMarkdown>
+      <ReactMarkdown remarkPlugins={[[remarkGfm, { singleTilde: false }]]}>
+        {children}
+      </ReactMarkdown>
     </div>
   );
 }
