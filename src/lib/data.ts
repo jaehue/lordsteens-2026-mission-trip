@@ -32,7 +32,7 @@ export async function getSchedule(): Promise<ScheduleRow[]> {
 // ── 명단 ────────────────────────────────────────────────
 export interface PersonRow {
   이름: string;
-  구분: string; // 교역자 / 교사 / 학생 / 스탭
+  구분: string; // 교역자 / 교사 / 학생 (팀장·스탭 등은 화면에서 교사로 묶음)
   학년: string;
   성별: string;
   섬김조: string;

@@ -4,6 +4,8 @@ teams:
     emoji: 🍚
     key: 조리
     status: 확인필요
+    headcount: 5명
+    members: [한성모, 안지혜, 김기숙, 여선영, 김인영]
     direction:
       - 직접 조리 선호
       - 조식은 시리얼+빵 유력
@@ -23,6 +25,8 @@ teams:
     emoji: 🌾
     key: 현장봉사
     status: 확인필요
+    headcount: 5명
+    members: [김시온, 이예진, 조인우, 오복락, 정예성]
     direction:
       - 농활 작업 + 장애인 가정 청소 봉사 중심
     confirmed:
@@ -38,6 +42,8 @@ teams:
     emoji: 🎈
     key: 마을잔치
     status: 논의중
+    headcount: 4명
+    members: [박도현, 임경수, 김수아, 박은우]
     direction:
       - 어르신 교감형 프로그램 구상 중
     confirmed:
@@ -52,6 +58,8 @@ teams:
     emoji: 🙏
     key: 예배&나눔
     status: 진행중
+    headcount: 4명
+    members: [현서이, 황유선, 정신애, 김주형]
     direction:
       - 말씀 카드 · 조별 나눔 · 1일차 영상 회고 중심
     confirmed:
@@ -67,6 +75,8 @@ teams:
     emoji: 🛡️
     key: 행정
     status: 확인필요
+    headcount: 6명
+    members: [오시현, 장윤희, 권유진, 김민성, 이주섭, 정현주]
     direction:
       - 회비 · 차량 · 티셔츠 · 안전관리 총괄
     confirmed:

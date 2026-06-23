@@ -53,6 +53,8 @@ export interface Team {
   emoji: string;
   key: string;
   status: string;
+  members: string[];
+  headcount: string;
   direction: string[];
   confirmed: string[];
   pending: string[];
@@ -66,6 +68,8 @@ export function getTeams(): Team[] {
     emoji: String(t.emoji ?? "📌"),
     key: String(t.key ?? t.name ?? ""),
     status: String(t.status ?? "대기"),
+    members: t.members ?? [],
+    headcount: String(t.headcount ?? ""),
     direction: t.direction ?? [],
     confirmed: t.confirmed ?? [],
     pending: t.pending ?? [],

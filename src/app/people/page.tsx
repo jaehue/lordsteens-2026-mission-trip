@@ -18,11 +18,20 @@ function isYes(v: string) {
   return /^(o|y|예|yes|true|1|참석|미귀가)$/i.test(v.trim());
 }
 
+/** 구분을 교역자 / 교사 / 학생 3가지로만 정규화한다. 팀장·스탭 등은 교사로 묶는다. */
+const ROLE_ORDER = ["교역자", "교사", "학생"];
+function role(r: PersonRow): string {
+  const v = (r.구분 || "").trim();
+  if (v === "교역자") return "교역자";
+  if (v === "학생") return "학생";
+  return "교사";
+}
+
 export default async function PeoplePage() {
   const configured = isSheetConfigured();
   const people = configured ? await getPeople() : [];
 
-  const byType = countBy(people, (r) => r.구분);
+  const byType = countBy(people, role);
   const partial = people.filter((r) => isYes(r.부분참석)).length;
   const staySat = people.filter((r) => isYes(r.토요미귀가)).length;
 
@@ -68,7 +77,11 @@ export default async function PeoplePage() {
                 <span className="text-[16px] font-bold text-[#9A958A]">명</span>
               </div>
               <div className="mt-3 flex flex-wrap gap-1.5">
-                {[...byType.entries()].map(([k, v]) => (
+                {[...byType.entries()]
+                  .sort(
+                    (a, b) => ROLE_ORDER.indexOf(a[0]) - ROLE_ORDER.indexOf(b[0]),
+                  )
+                  .map(([k, v]) => (
                   <span
                     key={k}
                     className="rounded-full bg-[#EAF0EC] px-2.5 py-1 text-[11.5px] font-bold text-[#2F5D50]"
@@ -111,7 +124,7 @@ export default async function PeoplePage() {
                         className="rounded-lg bg-[#F7F4EC] px-2.5 py-1 text-[12.5px] font-semibold text-[#3A3833]"
                       >
                         {m.이름}
-                        {m.구분 === "학생" && m.학년 ? (
+                        {role(m) === "학생" && m.학년 ? (
                           <span className="ml-1 text-[10.5px] text-[#9A958A]">
                             {m.학년}
                           </span>

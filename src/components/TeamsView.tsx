@@ -109,6 +109,31 @@ export default function TeamsView({
                     </div>
                   </div>
 
+                  {t.members.length > 0 && (
+                    <div className="mb-3">
+                      <div className="mb-1.5 flex items-center gap-1.5">
+                        <span className="text-[12px] font-extrabold text-[#2F5D50]">
+                          배정 선생님
+                        </span>
+                        {t.headcount && (
+                          <span className="text-[11px] font-bold text-[#9A958A]">
+                            {t.headcount}
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {t.members.map((m, i) => (
+                          <span
+                            key={i}
+                            className="rounded-lg bg-[#EAF0EC] px-2.5 py-1 text-[12.5px] font-semibold text-[#2F5D50]"
+                          >
+                            {m}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   <ListBlock
                     color="#2E7D52"
                     label="확정된 것"
