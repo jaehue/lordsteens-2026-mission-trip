@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { formatDate } from "./date";
 
 /**
  * 회의록 · 공지사항 · 운영계획 같은 "글" 콘텐츠는 프로젝트 내 마크다운 파일로 관리한다.
@@ -38,7 +39,7 @@ function readAll(): Doc[] {
         slug,
         title: String(data.title ?? slug),
         category: String(data.category ?? "공지"),
-        date: String(data.date ?? ""),
+        date: formatDate(data.date),
         summary: String(data.summary ?? ""),
         pinned: Boolean(data.pinned ?? false),
         body: content,

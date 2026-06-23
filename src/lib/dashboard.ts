@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { formatDate } from "./date";
 
 /**
  * 대시보드의 "준비현황" 콘텐츠는 content/dashboard/*.md 의 YAML frontmatter 로 관리한다.
@@ -98,7 +99,7 @@ export function getTasks(): Task[] {
     team: String(t.team ?? ""),
     title: String(t.title ?? ""),
     owner: String(t.owner ?? ""),
-    due: String(t.due ?? ""),
+    due: formatDate(t.due),
     status: String(t.status ?? "대기"),
     memo: String(t.memo ?? ""),
   }));
@@ -169,7 +170,7 @@ export interface Update {
 export function getUpdates(): Update[] {
   const d = read("updates");
   return ((d.updates as Update[]) ?? []).map((u) => ({
-    date: String(u.date ?? ""),
+    date: formatDate(u.date),
     title: String(u.title ?? ""),
     content: String(u.content ?? ""),
   }));
@@ -191,7 +192,7 @@ export function getResources(): DocItem[] {
   return ((d.docs as Partial<DocItem>[]) ?? []).map((doc) => ({
     name: String(doc.name ?? ""),
     type: String(doc.type ?? "DOC"),
-    date: String(doc.date ?? ""),
+    date: formatDate(doc.date),
     pinned: Boolean(doc.pinned),
     ready: Boolean(doc.ready),
     slug: doc.slug ? String(doc.slug) : undefined,
