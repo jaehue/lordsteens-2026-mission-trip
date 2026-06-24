@@ -18,6 +18,18 @@ docs:
     pinned: false
     ready: true
     slug: 0621-회의록
+  - name: 6/23 목사님 통화 기록
+    type: DOC
+    date: 6/23
+    pinned: false
+    ready: true
+    slug: 0623-목사님통화
+  - name: 주방팀 6/21 식사 계획
+    type: DOC
+    date: 6/21
+    pinned: false
+    ready: true
+    slug: 주방팀-식사계획
   - name: 참가자 명단
     type: SHEET
     date: 6/22

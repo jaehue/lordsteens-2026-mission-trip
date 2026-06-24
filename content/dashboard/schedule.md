@@ -1,5 +1,22 @@
 ---
 days:
+  - dayNum: "전"
+    dow: 출발
+    label: 출발 전 전체 모임
+    sub: 최소 2회 · 일정/장소 미확정
+    items:
+      - time: 미정
+        title: 전체 모임 1차
+        place: 미정
+        team: 본부팀 · 행정/안전 · 예배/나눔
+        status: 확인필요
+        note: 실무 브리핑, 선교 의미 나눔, 조별 활동 콘텐츠 기획 포함
+      - time: 미정
+        title: 전체 모임 2차
+        place: 미정
+        team: 본부팀 · 행정/안전 · 예배/나눔
+        status: 확인필요
+        note: 조별 멤버십 강화를 위해 조별 아이템 맞추기 등 활동 검토
   - dayNum: "06"
     dow: 목
     label: 8월 6일 목요일
@@ -22,13 +39,13 @@ days:
         place: 현지 식당
         team: 섬김조
         status: 확인필요
-        note: 식당 5곳 사전 확보
+        note: 교회 인근 식당 5~6군데 수용 인원 체크
       - time: "14:00"
         title: 청소(교회·마을·가정) · 장보기 · 고기파티 준비
         place: 교회 · 마을 · 마트
         team: 현장봉사 · 조리
         status: 진행중
-        note: 청소도구 택배 사전 발송
+        note: 장보기와 교회 주방 청소 팀 분리 · 하나로마트 규모/물가 체크
       - time: "18:00"
         title: 고기파티 (특식 바베큐)
         place: 교회 마당
@@ -53,17 +70,17 @@ days:
         status: 진행중
         note: ""
       - time: "06:00"
-        title: 농활 (~11:00) · 마을잔치 준비
+        title: 농활 (~11:00) · 마을잔치 준비 · 아침 간식 배달
         place: 농지 · 마을회관
-        team: 현장봉사 · 마을잔치
+        team: 현장봉사 · 마을잔치 · 조리
         status: 확인필요
-        note: 땡볕 전 마무리
+        note: 샌드위치·옥수수·음료수 등 9~10시쯤 봉사 현장으로 배달
       - time: "12:00"
         title: 마을잔치 (~14:00)
         place: 마을회관
-        team: 마을잔치
+        team: 마을잔치 · 조리
         status: 논의중
-        note: 우선안 · 목사님 협의 후 확정
+        note: 90~100인분 · 반계탕/도토리묵무침/부추전/사라당 등 후보, 메뉴 미확정
       - time: "15:00"
         title: 물놀이 (~17/18:00)
         place: 계곡 / 수영장
@@ -71,11 +88,11 @@ days:
         status: 진행중
         note: 차량 셔틀 · 간식
       - time: "18:30"
-        title: 저녁 (외부 식당 또는 바베큐)
+        title: 저녁 (국수 · 비빔밥 후보)
         place: 식당 · 교회
-        team: 섬김조
+        team: 조리팀
         status: 대기
-        note: ""
+        note: 열무국수, 남은 식재료 최대한 활용
       - time: "21:00"
         title: 마주 앉은 밤 ② 오늘 만난 마음들
         place: 본당
@@ -94,11 +111,11 @@ days:
     sub: 3일차 · 정리 & 귀가
     items:
       - time: "08:00"
-        title: 숙소 · 교회 · 주방 정리 (~10:00)
+        title: 아침(시리얼·빵) · 숙소 · 교회 · 주방 정리 (~10:00)
         place: 전체
-        team: 섬김조
+        team: 섬김조 · 조리
         status: 진행중
-        note: ""
+        note: 간단하게 아침 식사 후 정리
       - time: "10:00"
         title: 자체 활동(땅밟기·플로깅·버스킹) · 공방 체험
         place: 마을
@@ -110,7 +127,7 @@ days:
         place: 괴산면 시내
         team: 본부팀
         status: 진행중
-        note: 지역사랑상품권 지급
+        note: 활동에 따라 인근에 갈만한 식당 확인 · 지역사랑상품권 지급
       - time: "14:00"
         title: 전체 마을전도 (노방전도)
         place: 괴산 시내
