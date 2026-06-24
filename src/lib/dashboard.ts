@@ -188,9 +188,22 @@ export interface DocItem {
   href?: string;
 }
 
+/**
+ * 자료 날짜 문자열을 정렬용 숫자(YYYYMMDD)로 파싱한다.
+ * "2026.06.23"(Date 정규화) / "6/23"(M/D, 연도 없으면 2026 가정) 지원.
+ * "준비중" 등 파싱 불가는 null → 목록 맨 아래로.
+ */
+function docDateKey(date: string): number | null {
+  let m = date.match(/^(\d{4})[.\-/](\d{1,2})[.\-/](\d{1,2})$/);
+  if (m) return +m[1] * 10000 + +m[2] * 100 + +m[3];
+  m = date.match(/^(\d{1,2})\/(\d{1,2})$/);
+  if (m) return 2026 * 10000 + +m[1] * 100 + +m[2];
+  return null;
+}
+
 export function getResources(): DocItem[] {
   const d = read("resources");
-  return ((d.docs as Partial<DocItem>[]) ?? []).map((doc) => ({
+  const docs = ((d.docs as Partial<DocItem>[]) ?? []).map((doc) => ({
     name: String(doc.name ?? ""),
     type: String(doc.type ?? "DOC"),
     date: formatDate(doc.date),
@@ -199,6 +212,16 @@ export function getResources(): DocItem[] {
     slug: doc.slug ? String(doc.slug) : undefined,
     href: doc.href ? String(doc.href) : undefined,
   }));
+  // 최신순(날짜 내림차순). 파싱 불가 날짜는 맨 아래, 동일 날짜는 기존 순서 유지(안정 정렬).
+  return docs
+    .map((doc, i) => ({ doc, i, key: docDateKey(doc.date) }))
+    .sort((a, b) => {
+      if (a.key === null && b.key === null) return a.i - b.i;
+      if (a.key === null) return 1;
+      if (b.key === null) return -1;
+      return b.key - a.key || a.i - b.i;
+    })
+    .map((x) => x.doc);
 }
 
 /** ready 인 자료의 최종 링크 (내부 문서 slug → /resources/<slug>, 아니면 href) */
