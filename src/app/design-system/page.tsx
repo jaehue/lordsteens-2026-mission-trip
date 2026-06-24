@@ -57,7 +57,7 @@ export default function DesignSystemPage() {
 
         <Divider />
 
-        <div className="grid gap-7 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-7 sm:grid-cols-2">
           {/* 폰트 */}
           <div>
             <div className="mb-3.5 text-[14px] font-extrabold text-[#2F5D50]">
@@ -96,7 +96,7 @@ export default function DesignSystemPage() {
 
         <Divider />
 
-        <div className="grid items-start gap-7 sm:grid-cols-2">
+        <div className="grid grid-cols-1 items-start gap-7 sm:grid-cols-2">
           {/* 버튼 + 카드 */}
           <div>
             <div className="mb-3.5 text-[14px] font-extrabold text-[#2F5D50]">

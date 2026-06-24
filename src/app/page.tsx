@@ -61,7 +61,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="mt-3.5 grid gap-3.5 lg:mt-4 lg:grid-cols-3 lg:gap-4 lg:items-start">
+        <div className="mt-3.5 grid grid-cols-1 gap-3.5 lg:mt-4 lg:grid-cols-3 lg:gap-4 lg:items-start">
           {/* Column 1 */}
           <div className="flex flex-col gap-3.5 lg:gap-4">
             {/* 남은 할일 */}
