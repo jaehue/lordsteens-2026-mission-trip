@@ -67,7 +67,7 @@ export default function DesignSystemPage() {
               준비 현황 한눈에
             </div>
             <div className="mt-2 text-[18px] font-bold text-[#3A3833]">
-              팀별 다음 액션 Bold 700
+              팀별 확인 필요 Bold 700
             </div>
             <div className="mt-2 text-[14px] font-medium text-[#3A3833]">
               본문 텍스트는 읽기 편한 굵기 Medium 500

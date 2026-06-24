@@ -2,22 +2,22 @@
 docs:
   - name: 최종 운영 계획
     type: DOC
-    date: 6/18
+    date: 6/23
     pinned: true
     ready: true
     slug: 운영계획
   - name: 6/18 리더 회의록
     type: DOC
     date: 6/18
-    pinned: true
-    ready: true
-    slug: 0618-회의록
-  - name: 주방팀 사전답사 체크리스트
-    type: DOC
-    date: 6/23
     pinned: false
     ready: true
-    slug: 주방-사전답사-체크리스트
+    slug: 0618-회의록
+  - name: 6/21 TF 활동 논의 회의록
+    type: DOC
+    date: 6/21
+    pinned: false
+    ready: true
+    slug: 0621-회의록
   - name: 참가자 명단
     type: SHEET
     date: 6/22

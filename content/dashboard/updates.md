@@ -7,7 +7,7 @@ updates:
     title: 현장봉사 구매 예상 목록 추가
     content: 농활 · 청소 물품 1차 정리
   - date: 6/21
-    title: 첫 미팅 완료
+    title: TF 팀 구성 완료
     content: 각 TF 논의 결과 취합
 ---
 

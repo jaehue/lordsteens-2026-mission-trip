@@ -70,44 +70,42 @@ export default function TeamsView({
                     </span>
                     <StatusBadge status={t.status} />
                   </div>
-                  <div className="mt-2 flex items-center gap-1.5">
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="#E6A23C"
-                      strokeWidth="2.4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M5 12h13M13 6l6 6-6 6" />
-                    </svg>
-                    <span className="text-[12.5px] font-bold text-[#2F5D50]">
-                      남은 액션 {t.next.length}개
-                    </span>
-                  </div>
+                  {t.checks.length > 0 && (
+                    <div className="mt-2 flex items-center gap-1.5">
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#E6A23C"
+                        strokeWidth="2.4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M12 8v4.5M12 16h.01" />
+                      </svg>
+                      <span className="text-[12.5px] font-bold text-[#B0703A]">
+                        확인 필요 {t.checks.length}개
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <Caret open={open} />
               </button>
 
               {open && (
                 <div className="px-[15px] pb-4">
-                  <div className="mb-3 rounded-xl bg-[#F7F4EC] px-[13px] py-[11px]">
-                    <span className="text-[11px] font-bold text-[#9A958A]">
-                      현재 방향
-                    </span>
-                    <div className="mt-1.5 flex flex-col gap-0.5">
-                      {t.direction.map((d, i) => (
-                        <div
-                          key={i}
-                          className="text-[13px] leading-snug font-semibold text-[#3A3833]"
-                        >
-                          {d}
-                        </div>
-                      ))}
+                  {t.state && (
+                    <div className="mb-3 rounded-xl bg-[#F7F4EC] px-[13px] py-[11px]">
+                      <span className="text-[11px] font-bold text-[#9A958A]">
+                        현재 상태
+                      </span>
+                      <p className="mt-1.5 text-[13px] leading-relaxed font-semibold text-[#3A3833]">
+                        {t.state}
+                      </p>
                     </div>
-                  </div>
+                  )}
 
                   {t.members.length > 0 && (
                     <div className="mb-3">
@@ -135,49 +133,19 @@ export default function TeamsView({
                   )}
 
                   <ListBlock
-                    color="#2E7D52"
-                    label="확정된 것"
-                    items={t.confirmed}
-                    icon="check"
+                    color="#5B7E6E"
+                    labelColor="#3A6051"
+                    label="논의된 내용"
+                    items={t.direction}
+                    icon="dot"
                   />
                   <ListBlock
                     color="#E6A23C"
                     labelColor="#B0703A"
-                    label="미확정 · 확인 필요"
-                    items={t.pending}
+                    label="확인 필요"
+                    items={t.checks}
                     icon="alert"
                   />
-
-                  <div className="rounded-xl bg-[#2F5D50] px-[13px] py-3">
-                    <div className="mb-2 flex items-center gap-1.5">
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#E6A23C"
-                        strokeWidth="2.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M5 12h13M13 6l6 6-6 6" />
-                      </svg>
-                      <span className="text-[12px] font-extrabold text-[#E6C88A]">
-                        다음 액션
-                      </span>
-                    </div>
-                    <div className="flex flex-col gap-1.5">
-                      {t.next.map((x, i) => (
-                        <div
-                          key={i}
-                          className="flex gap-2 text-[13px] leading-snug font-semibold text-[#FBF7EE]"
-                        >
-                          <span className="text-[#E6A23C]">·</span>
-                          <span>{x}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
                 </div>
               )}
             </div>
@@ -199,11 +167,11 @@ function ListBlock({
   labelColor?: string;
   label: string;
   items: string[];
-  icon: "check" | "alert";
+  icon: "dot" | "alert";
 }) {
   if (items.length === 0) return null;
   return (
-    <div className="mb-3">
+    <div className="mb-3 last:mb-0">
       <div className="mb-1.5 flex items-center gap-1.5">
         <span
           className="h-[7px] w-[7px] rounded-full"
@@ -233,8 +201,8 @@ function ListBlock({
               strokeLinejoin="round"
               className="mt-0.5 shrink-0"
             >
-              {icon === "check" ? (
-                <path d="M5 12.5l4.5 4.5L19 6.5" />
+              {icon === "dot" ? (
+                <circle cx="12" cy="12" r="3.5" fill={color} stroke="none" />
               ) : (
                 <>
                   <circle cx="12" cy="12" r="9" />

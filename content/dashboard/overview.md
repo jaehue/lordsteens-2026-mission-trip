@@ -3,10 +3,10 @@ title: 2026 괴산 단기선교
 church: 주님의교회 청소년부
 dateLabel: 8.6 목 – 8.8 토
 dateSub: 2박 3일
-currentStage: 첫 미팅 완료 → 현지 확인 · 예산 취합 · TF별 실행안 구체화
+currentStage: TF 팀 구성 완료 → 현지 확인 · 예산 취합 · TF별 실행안 구체화
 stageShort: 현지 확인 · 예산 취합 단계
 weekDeadline: "~ 6/28"
-intro: 첫 미팅을 마치고 각 TF가 실행안을 다듬는 중입니다.
+intro: TF 팀 구성을 마치고 각 TF가 실행안을 다듬는 중입니다.
 thisWeek:
   - 현지 목사님 확인사항 정리
   - 각 TF 예산 제출

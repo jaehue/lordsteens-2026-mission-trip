@@ -141,11 +141,11 @@ export default function HomePage() {
                     </div>
                   </div>
                   <div className="flex shrink-0 flex-col items-end gap-0.5">
-                    <span className="text-[15px] font-extrabold text-[#2F5D50]">
-                      {t.next.length}개
+                    <span className="text-[15px] font-extrabold text-[#B0703A]">
+                      {t.checks.length}개
                     </span>
                     <span className="text-[10px] font-bold text-[#9A958A]">
-                      남은 액션
+                      확인 필요
                     </span>
                   </div>
                 </Link>

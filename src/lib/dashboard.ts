@@ -56,10 +56,12 @@ export interface Team {
   status: string;
   members: string[];
   headcount: string;
+  /** 본부 관점 현재 상태 한 줄 (openbrain "현재 상태" 원문) */
+  state: string;
+  /** 논의된 내용 (openbrain "진행된 내용 / 주요 방향" 원문) */
   direction: string[];
-  confirmed: string[];
-  pending: string[];
-  next: string[];
+  /** 확인 필요 (openbrain "본부가 확인할 것 / 확인 필요사항" 원문, 임의 축소 금지) */
+  checks: string[];
 }
 
 export function getTeams(): Team[] {
@@ -71,10 +73,9 @@ export function getTeams(): Team[] {
     status: String(t.status ?? "대기"),
     members: t.members ?? [],
     headcount: String(t.headcount ?? ""),
+    state: String(t.state ?? ""),
     direction: t.direction ?? [],
-    confirmed: t.confirmed ?? [],
-    pending: t.pending ?? [],
-    next: t.next ?? [],
+    checks: t.checks ?? [],
   }));
 }
 
