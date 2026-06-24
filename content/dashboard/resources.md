@@ -18,7 +18,7 @@ docs:
     pinned: false
     ready: true
     slug: 0621-회의록
-  - name: 6/23 목사님 통화 기록
+  - name: 6/23 목사님 통화
     type: DOC
     date: 6/23
     pinned: false
