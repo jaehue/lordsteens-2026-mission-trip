@@ -30,7 +30,7 @@ docs:
     pinned: false
     ready: true
     slug: 0626-현지목사님답변
-  - name: 6/27 농활·마을잔치 추가 확인
+  - name: 6/27 현지 목사님 통화로 추가 확인
     type: DOC
     date: 6/27
     pinned: false
