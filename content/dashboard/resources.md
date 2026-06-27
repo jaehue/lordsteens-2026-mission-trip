@@ -2,7 +2,7 @@
 docs:
   - name: 최종 운영 계획
     type: DOC
-    date: 6/23
+    date: 6/27
     pinned: true
     ready: true
     slug: 운영계획
@@ -24,6 +24,18 @@ docs:
     pinned: false
     ready: true
     slug: 0623-목사님통화
+  - name: 6/26 현지 목사님 답변
+    type: DOC
+    date: 6/26
+    pinned: false
+    ready: true
+    slug: 0626-현지목사님답변
+  - name: 6/27 농활·마을잔치 추가 확인
+    type: DOC
+    date: 6/27
+    pinned: false
+    ready: true
+    slug: 0627-농활마을잔치추가확인
   - name: 주방팀 6/21 식사 계획
     type: DOC
     date: 6/21
