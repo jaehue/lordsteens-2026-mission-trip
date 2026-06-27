@@ -24,18 +24,12 @@ docs:
     pinned: false
     ready: true
     slug: 0623-목사님통화
-  - name: 6/26 현지 목사님 답변
-    type: DOC
-    date: 6/26
-    pinned: false
-    ready: true
-    slug: 0626-현지목사님답변
-  - name: 6/27 현지 목사님 통화로 추가 확인
+  - name: 6/27 현지 목사님 확인사항 정리
     type: DOC
     date: 6/27
     pinned: false
     ready: true
-    slug: 0627-농활마을잔치추가확인
+    slug: 0627-현지목사님확인정리
   - name: 주방팀 6/21 식사 계획
     type: DOC
     date: 6/21
