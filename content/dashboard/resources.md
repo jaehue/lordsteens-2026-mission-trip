@@ -1,8 +1,14 @@
 ---
 docs:
+  - name: 7/4 답사 관련 확인 사항
+    type: DOC
+    date: 7/4
+    pinned: false
+    ready: true
+    slug: 0704-답사확인사항
   - name: 최종 운영 계획
     type: DOC
-    date: 6/27
+    date: 7/4
     pinned: true
     ready: true
     slug: 운영계획
