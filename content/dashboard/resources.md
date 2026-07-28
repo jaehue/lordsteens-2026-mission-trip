@@ -1,17 +1,23 @@
 ---
 docs:
+  - name: 7/28 괴산 국내선교 준비 줌 회의
+    type: DOC
+    date: 7/28
+    pinned: true
+    ready: true
+    slug: 0728-회의록
+  - name: 최종 운영 계획
+    type: DOC
+    date: 7/28
+    pinned: true
+    ready: true
+    slug: 운영계획
   - name: 7/4 답사 관련 확인 사항
     type: DOC
     date: 7/4
     pinned: false
     ready: true
     slug: 0704-답사확인사항
-  - name: 최종 운영 계획
-    type: DOC
-    date: 7/4
-    pinned: true
-    ready: true
-    slug: 운영계획
   - name: 6/18 리더 회의록
     type: DOC
     date: 6/18
@@ -55,5 +61,4 @@ docs:
     ready: false
 ---
 
-자료 탭 목록. `slug`는 content/<slug>.md(내부 문서)로, `href`는 임의 경로/외부 링크로 연결.
-`ready:false`면 "준비중"으로 표시하고 링크하지 않는다. type: PDF / DOC / SHEET.
+자료 탭 목록. 맨 위 7/28 회의록과 최종 운영 계획은 사용자 최종 정리 기준으로 갱신됨.
