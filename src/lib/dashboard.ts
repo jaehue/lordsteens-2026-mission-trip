@@ -124,12 +124,11 @@ export function taskStats(tasks: Task[]): TaskStats {
 /** 할 일 필터칩 라벨 */
 export const TASK_CHIPS = [
   "전체",
-  "본부",
-  "조리",
-  "현장봉사",
-  "마을잔치",
-  "예배&나눔",
-  "행정&안전",
+  "이동",
+  "숙소·물품",
+  "공지",
+  "안전",
+  "출발 당일",
   "완료",
 ];
 
