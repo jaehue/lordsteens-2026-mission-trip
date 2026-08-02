@@ -4,9 +4,7 @@ import WeekChecklist from "@/components/WeekChecklist";
 import StatusBadge from "@/components/StatusBadge";
 import {
   getOverview,
-  getTeams,
   getTasks,
-  getUpdates,
   taskStats,
 } from "@/lib/dashboard";
 import { isUrgent } from "@/lib/status";
@@ -15,10 +13,9 @@ export const revalidate = 300;
 
 export default function HomePage() {
   const overview = getOverview();
-  const teams = getTeams();
   const tasks = getTasks();
-  const updates = getUpdates();
   const stats = taskStats(tasks);
+  const activeTasks = tasks.filter((t) => t.status !== "완료");
   const urgent = tasks.filter((t) => isUrgent(t.status)).slice(0, 4);
 
   return (
@@ -106,82 +103,51 @@ export default function HomePage() {
             </Card>
           </div>
 
-          {/* Column 2: TF별 요약 */}
+          {/* Column 2: 출발 전 담당 현황 */}
           <Card>
             <div className="mb-3 flex items-center justify-between">
               <span className="text-[14px] font-extrabold text-[#23211E]">
-                TF별 요약
+                출발 전 담당 현황
               </span>
               <Link
-                href="/teams"
+                href="/tasks"
                 className="flex items-center gap-0.5 text-[12px] font-bold text-[#2F5D50]"
               >
                 전체 보기 ›
               </Link>
             </div>
             <div className="flex flex-col gap-2.5">
-              {teams.map((t) => (
-                <Link
-                  key={t.name}
-                  href="/teams"
-                  className="flex items-center gap-3 rounded-xl bg-[#F7F4EC] p-3 lg:bg-[#F7F4EC]"
+              {activeTasks.map((task, i) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-between gap-3 rounded-xl bg-[#F7F4EC] p-3"
                 >
-                  <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-xl bg-[#EAF0EC] text-[16px]">
-                    {t.emoji}
-                  </div>
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-2">
-                      <span className="text-[14px] font-extrabold text-[#23211E]">
-                        {t.name}
-                      </span>
-                      <StatusBadge status={t.status} />
+                    <div className="truncate text-[13px] font-extrabold text-[#23211E]">
+                      {task.title}
                     </div>
-                    <div className="mt-0.5 truncate text-[12px] text-[#6B7280]">
-                      {t.direction[0]}
+                    <div className="mt-0.5 truncate text-[11px] text-[#6B7280]">
+                      {task.owner} · {task.due}
                     </div>
                   </div>
-                  <div className="flex shrink-0 flex-col items-end gap-0.5">
-                    <span className="text-[15px] font-extrabold text-[#B0703A]">
-                      {t.checks.length}개
-                    </span>
-                    <span className="text-[10px] font-bold text-[#9A958A]">
-                      확인 필요
-                    </span>
-                  </div>
-                </Link>
+                  <StatusBadge status={task.status} />
+                </div>
               ))}
             </div>
           </Card>
 
           {/* Column 3 */}
           <div className="flex flex-col gap-3.5 lg:gap-4">
-            {/* 최근 업데이트 */}
+            {/* 출발 안내 */}
             <Card>
               <span className="text-[14px] font-extrabold text-[#23211E]">
-                최근 업데이트
+                출발 안내
               </span>
-              <div className="mt-3 flex flex-col">
-                {updates.map((u, i) => (
-                  <div key={i} className="flex gap-3">
-                    <div className="flex shrink-0 flex-col items-center">
-                      <span className="mt-1 h-[9px] w-[9px] rounded-full bg-[#E6A23C] shadow-[0_0_0_3px_#FAEEDA]" />
-                      {i < updates.length - 1 && (
-                        <span className="my-1 w-0.5 flex-1 bg-[#EDE7DA]" />
-                      )}
-                    </div>
-                    <div className="pb-3.5">
-                      <span className="text-[11px] font-bold text-[#9A958A]">
-                        {u.date}
-                      </span>
-                      <div className="mt-px text-[13.5px] font-bold text-[#2F5D50]">
-                        {u.title}
-                      </div>
-                      <div className="mt-0.5 text-[12px] leading-snug text-[#6B7280]">
-                        {u.content}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              <div className="mt-3 rounded-xl bg-[#F7F4EC] p-3 text-[12px] leading-relaxed text-[#4B4944]">
+                {overview.intro}
+              </div>
+              <div className="mt-2 rounded-xl bg-[#EAF0EC] p-3 text-[12px] font-bold leading-relaxed text-[#2F5D50]">
+                김다안 학생은 조규섭 선생님 차량으로 오기로 했습니다.
               </div>
             </Card>
 
