@@ -20,6 +20,10 @@ function isYes(v: string) {
 
 /** 구분을 교역자 / 교사 / 학생 3가지로만 정규화한다. 팀장·스탭 등은 교사로 묶는다. */
 const ROLE_ORDER = ["교역자", "교사", "학생"];
+function groupOrder(group: string): number {
+  const match = /^(\d+)조$/.exec(group.trim());
+  return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
+}
 function role(r: PersonRow): string {
   const v = (r.구분 || "").trim();
   if (v === "교역자") return "교역자";
@@ -104,7 +108,9 @@ export default async function PeoplePage() {
 
             {/* 섬김조별 */}
             <div className="mt-4 flex flex-col gap-3">
-              {[...groups.entries()].map(([g, members]) => (
+              {[...groups.entries()]
+                .sort(([a], [b]) => groupOrder(a) - groupOrder(b) || a.localeCompare(b, "ko"))
+                .map(([g, members]) => (
                 <div
                   key={g}
                   className="rounded-2xl border border-[#EFEAE0] bg-white p-[15px] shadow-[0_1px_2px_rgba(47,93,80,0.04)]"
