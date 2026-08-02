@@ -18,6 +18,10 @@ function isYes(v: string) {
   return /^(o|y|예|yes|true|1|참석|미귀가)$/i.test(v.trim());
 }
 
+function hasPartialAttendance(v: string) {
+  return Boolean(v.trim());
+}
+
 /** 구분을 교역자 / 교사 / 학생 3가지로만 정규화한다. 팀장·스탭 등은 교사로 묶는다. */
 const ROLE_ORDER = ["교역자", "교사", "학생"];
 function groupOrder(group: string): number {
@@ -36,7 +40,7 @@ export default async function PeoplePage() {
   const people = configured ? await getPeople() : [];
 
   const byType = countBy(people, role);
-  const partial = people.filter((r) => isYes(r.부분참석)).length;
+  const partial = people.filter((r) => hasPartialAttendance(r.부분참석)).length;
   const staySat = people.filter((r) => isYes(r.토요미귀가)).length;
 
   // 섬김조별 그룹
@@ -133,6 +137,11 @@ export default async function PeoplePage() {
                         {role(m) === "학생" && m.학년 ? (
                           <span className="ml-1 text-[10.5px] text-[#9A958A]">
                             {m.학년}
+                          </span>
+                        ) : null}
+                        {hasPartialAttendance(m.부분참석) ? (
+                          <span className="ml-1 rounded-full bg-[#FAEEDA] px-1.5 py-0.5 text-[10px] font-bold text-[#B0703A]">
+                            부분참석 · {m.부분참석}
                           </span>
                         ) : null}
                       </span>
